@@ -8,9 +8,11 @@ function App() {
  
 
   return (
-    <Container>
+    <div>
       <Header />
-    </Container>
+      <Container maxWidth="xl">
+      </Container>
+    </div>
   )
 }
 
