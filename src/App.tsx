@@ -1,8 +1,11 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import { Container } from '@mui/material'
+import { Container } from "@mui/material";
 
-import Header from './components/Header'
+import Data from "./utils/dataCart.json";
+
+import Header from "./components/Header";
+import Cart from "./components/Cart";
 
 function App() {
  
@@ -11,6 +14,7 @@ function App() {
     <div>
       <Header />
       <Container maxWidth="xl">
+        <Cart data={Data}/>
       </Container>
     </div>
   )

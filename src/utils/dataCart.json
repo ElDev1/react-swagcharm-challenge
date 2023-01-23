@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "productName": "My christmas pack",
+        "maxQuantity": 50,
+        "pack": true,
+        "price": 71.20,
+        "packObjects": ["Cardboard box", "Unisex Short Sleeve T-Shirt", "Basic bottle"] 
+    },
+    {
+        "id": 2,
+        "productName": "Basic T-Shirt",
+        "maxQuantity": 10,
+        "pack": false,
+        "price": 13.50,
+        "packObjects": []
+    },
+    {
+        "id": 3,
+        "productName": "Woman bottle",
+        "maxQuantity": 20,
+        "pack": false,
+        "price": 36.50,
+        "packObjects": []
+    }
+]

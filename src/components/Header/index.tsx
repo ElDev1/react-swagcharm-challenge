@@ -45,7 +45,7 @@ const Header = () => {
                                 height="40px" 
                                 borderRadius="20px" 
                                 border="none" 
-                                placeHolder="Search Products"
+                                placeholder="Search Products"
                             />
                         
                         </Box>
