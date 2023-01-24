@@ -1,27 +1,48 @@
 import { useState } from "react";
 
-import { Box, Button, Container, Divider, TextField, Typography } from "@mui/material"
+import { Box, Button, Divider, TextField, Typography } from "@mui/material"
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 type Props = {
+    id: number
     productName: string
     maxQuantity: number
     pack: boolean
     price: number
     packObjects: string[]
     img: string
+    deleteDataItem: Function
+    totalQuantity: Quantity[]
+    setTotalQuantity: Function
 }
+
+type Quantity = {
+    id: number
+    quantityItems: number
+}
+
 
 const Item = (props: Props) => {
     
-    const { productName, maxQuantity, pack, price, packObjects, img } = props;
+    const { id, productName, maxQuantity, pack, price, packObjects, img, deleteDataItem, setTotalQuantity, totalQuantity } = props;
     
     const [quantity, setQuantity] = useState(maxQuantity)
 
+
+
     const handleQuantity = (event: React.ChangeEvent<HTMLTextAreaElement>) => { 
-        const number = Number(event.target.value)
-        setQuantity(number)
+        const number = Number(event.target.value);
+
+        const itemOfArr = Object.assign(totalQuantity[id - 1]);
+        itemOfArr.quantityItems = number;
+        
+        const newArr = totalQuantity.map(elem => elem);
+        newArr[id - 1] = itemOfArr;
+        
+        setQuantity(number);
+        setTotalQuantity(newArr);
     }
+
 
     return (
         <Box>
@@ -65,11 +86,11 @@ const Item = (props: Props) => {
                                     <Box display="flex" color="black" marginTop="22px">
                                         <Button color="inherit" size="small" variant="text">Edit pack</Button>
                                         <Divider orientation="vertical" variant="middle" flexItem></Divider>
-                                        <Button color="inherit" size="small" variant="text">Remove</Button>
+                                        <Button color="inherit" size="small" variant="text" onClick={() => deleteDataItem(id)}>Remove</Button>
                                     </Box>
                                 ) : (
                                     <Box color="black">
-                                        <Button color="inherit" size="small" variant="text" startIcon={<DeleteOutlineIcon />}>Remove</Button>
+                                        <Button color="inherit" size="small" variant="text" onClick={() => deleteDataItem(id)} startIcon={<DeleteOutlineIcon />}>Remove</Button>
                                     </Box>
                                 )
                             }
