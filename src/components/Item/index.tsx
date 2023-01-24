@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Box, Button, Divider, TextField, Typography } from "@mui/material"
+import { Box, Button, Container, Divider, TextField, Typography } from "@mui/material"
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 type Props = {
@@ -24,7 +24,7 @@ const Item = (props: Props) => {
     }
 
     return (
-        <Box Container maxWidth="md">
+        <Box>
             <Box display="flex" justifyContent="space-between"  marginTop="40px" marginBottom="20px">
                 <Box display="flex">
                     <Box>

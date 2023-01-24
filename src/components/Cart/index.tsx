@@ -1,9 +1,8 @@
-import { FC } from "react";
-
 import { Box } from "@mui/system";
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 
-import Item from "../../components/Item";
+import Item from "../Item";
+import OrderSummary from "../OrderSummary";
 
 type Props = {
    data: {
@@ -22,8 +21,9 @@ const Cart = (props: Props) => {
   const { data } = props;
 
   return (
-    <Box>
-        <Box display="flex" marginTop="32px" alignItems="end">
+    <Box display="flex" marginTop="32px" justifyContent="space-betweens" gap="20px">
+      <Box maxWidth="1100px" width="100%">
+        <Box display="flex" alignItems="end">
             <Typography variant="h5" fontWeight="600" >Your Cart</Typography> 
             <Typography color="gray" marginLeft="5px">({data.length})</Typography>
         </Box>
@@ -40,6 +40,10 @@ const Cart = (props: Props) => {
                     />
             })}
         </Box>
+      </Box>
+      <Box>
+        <OrderSummary />
+      </Box>
     </Box>
   )
 }
