@@ -13,6 +13,7 @@ type Props = {
       pack: boolean,
       price: number,
       packObjects: string[]
+      img: string
    }[]
 }
 
@@ -22,7 +23,10 @@ const Cart = (props: Props) => {
 
   return (
     <Box>
-        <Typography component="h1">Your Cart</Typography>
+        <Box display="flex" marginTop="32px" alignItems="end">
+            <Typography variant="h5" fontWeight="600" >Your Cart</Typography> 
+            <Typography color="gray" marginLeft="5px">({data.length})</Typography>
+        </Box>
         <Box>
             {data.map(elem => {
             return <Item 
@@ -31,7 +35,8 @@ const Cart = (props: Props) => {
                         maxQuantity={elem.maxQuantity} 
                         pack={elem.pack} 
                         price={elem.price} 
-                        packObjects={elem.packObjects} 
+                        packObjects={elem.packObjects}
+                        img={elem.img} 
                     />
             })}
         </Box>
