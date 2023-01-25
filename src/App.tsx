@@ -7,6 +7,7 @@ import Data from "./utils/dataCart.json";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
 import Suggestions from "./components/Suggestions";
+import Footer from "./components/Footer";
 
 function App() {
  
@@ -18,6 +19,7 @@ function App() {
         <Cart data={Data}/>
         <Suggestions />
       </Container>
+      <Footer />
     </div>
   )
 }
