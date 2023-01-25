@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
@@ -26,13 +26,32 @@ const Cart = (props: Props) => {
   const [totalQuantity, setTotalQuantity] = useState(dataItems.map((item) => {
     return {id: item.id, quantityItems: item.maxQuantity}
   }));
+  const [totalPrice, setTotalPrice] = useState(0)
+
+  useEffect(() => {
+      calcTotalPrice();
+  },[totalQuantity, dataItems])
+
+  console.log(totalPrice)
 
   const deleteDataItem = (id: number) => {
     const newArr = dataItems.filter(elem => elem.id !== id);
     setDataItems(newArr);
 
-    const filteredQuantityArr = totalQuantity.filter(elem => elem.id !== id)
+    const filteredQuantityArr = totalQuantity.filter(elem => elem.id !== id);
+
     setTotalQuantity(filteredQuantityArr);
+  }
+
+  const calcTotalPrice = () => {
+    
+    let price = 0;
+    
+    for(let i = 0; i < dataItems.length; i++) {
+      price += dataItems[i].price * totalQuantity[i].quantityItems
+    }
+
+    setTotalPrice(price); 
   }
   
   console.log(totalQuantity)
@@ -45,7 +64,7 @@ const Cart = (props: Props) => {
             <Typography color="gray" marginLeft="5px">({dataItems.length})</Typography>
         </Box>
         <Box>
-            {dataItems.map(elem => {
+            {dataItems.map((elem, i) => {
             return <Item 
                         key={elem.id}
                         id={elem.id}
@@ -63,7 +82,7 @@ const Cart = (props: Props) => {
         </Box>
       </Box>
       <Box>
-        <OrderSummary />
+        <OrderSummary totalPrice={totalPrice} totalItems={dataItems.length}/>
       </Box>
     </Box>
   )

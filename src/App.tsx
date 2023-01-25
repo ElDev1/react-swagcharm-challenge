@@ -6,6 +6,7 @@ import Data from "./utils/dataCart.json";
 
 import Header from "./components/Header";
 import Cart from "./components/Cart";
+import Suggestions from "./components/Suggestions";
 
 function App() {
  
@@ -15,6 +16,7 @@ function App() {
       <Header />
       <Container maxWidth="xl">
         <Cart data={Data}/>
+        <Suggestions />
       </Container>
     </div>
   )

@@ -32,15 +32,24 @@ const Item = (props: Props) => {
 
     const handleQuantity = (event: React.ChangeEvent<HTMLTextAreaElement>) => { 
         const number = Number(event.target.value);
-
-        const itemOfArr = Object.assign(totalQuantity[id - 1]);
-        itemOfArr.quantityItems = number;
         
-        const newArr = totalQuantity.map(elem => elem);
-        newArr[id - 1] = itemOfArr;
+        console.log(totalQuantity, "totalQuantity");
+        console.log(id, "id");
+        
+        const obj = totalQuantity.find(elem => elem.id === id)
+
+        if(obj !== undefined) {
+            const itemOfArr = Object.assign(obj);
+            itemOfArr.quantityItems = number;
+            
+            const newArr = totalQuantity.map(elem => elem);
+            newArr[id - 1] = itemOfArr;
+            setTotalQuantity(newArr);
+        }
+
+        //const itemOfArr = Object.assign(totalQuantity[id - 1]);
         
         setQuantity(number);
-        setTotalQuantity(newArr);
     }
 
 
