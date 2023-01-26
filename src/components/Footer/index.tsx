@@ -127,7 +127,7 @@ const Footer = () => {
                     <Box display="flex" alignItems="center">
                         <Typography variant="body2">Region: </Typography>
                         <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                            <InputLabel id="demo-select">Region</InputLabel>
+                            <InputLabel id="demo-select">United States</InputLabel>
                             <Select
                                 labelId="demo-select"
                                 id="demo-select"
@@ -144,7 +144,7 @@ const Footer = () => {
                     <Box display="flex" alignItems="center">
                         <Typography variant="body2">Language: </Typography>
                         <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                            <InputLabel id="demo-select">Language</InputLabel>
+                            <InputLabel id="demo-select">English</InputLabel>
                             <Select
                                 labelId="demo-select"
                                 id="demo-select"

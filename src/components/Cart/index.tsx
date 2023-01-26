@@ -24,7 +24,7 @@ const Cart = (props: Props) => {
 
   const [dataItems, setDataItems] = useState(data);
   const [totalQuantity, setTotalQuantity] = useState(dataItems.map((item) => {
-    return {id: item.id, quantityItems: item.maxQuantity}
+    return {id: item.id, quantityItems: 0}
   }));
   const [totalPrice, setTotalPrice] = useState(0)
 
@@ -36,9 +36,11 @@ const Cart = (props: Props) => {
 
   const deleteDataItem = (id: number) => {
     const newArr = dataItems.filter(elem => elem.id !== id);
+    
     setDataItems(newArr);
 
     const filteredQuantityArr = totalQuantity.filter(elem => elem.id !== id);
+    
 
     setTotalQuantity(filteredQuantityArr);
   }

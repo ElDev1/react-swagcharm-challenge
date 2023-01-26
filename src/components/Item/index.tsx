@@ -26,7 +26,7 @@ const Item = (props: Props) => {
     
     const { id, productName, maxQuantity, pack, price, packObjects, img, deleteDataItem, setTotalQuantity, totalQuantity } = props;
     
-    const [quantity, setQuantity] = useState(maxQuantity)
+    const [quantity, setQuantity] = useState(0)
 
 
 
@@ -36,19 +36,11 @@ const Item = (props: Props) => {
         console.log(totalQuantity, "totalQuantity");
         console.log(id, "id");
         
-        const obj = totalQuantity.find(elem => elem.id === id)
-
-        if(obj !== undefined) {
-            const itemOfArr = Object.assign(obj);
-            itemOfArr.quantityItems = number;
-            
-            const newArr = totalQuantity.map(elem => elem);
-            newArr[id - 1] = itemOfArr;
-            setTotalQuantity(newArr);
-        }
-
-        //const itemOfArr = Object.assign(totalQuantity[id - 1]);
+        const newArr = totalQuantity.map(elem => elem);
+        const index = newArr.findIndex(elem => elem.id === id);
+        newArr[index].quantityItems = number;
         
+        setTotalQuantity(newArr)
         setQuantity(number);
     }
 
