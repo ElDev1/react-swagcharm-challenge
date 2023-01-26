@@ -38,9 +38,9 @@ const index = () => {
       </Typography>
       <Stack direction="row" spacing="24px">
         {
-          mockData.map(elem => {
+          mockData.map((elem, i) => {
           return (
-            <Box>
+            <Box key={i}>
               <Box
                  width="336px" 
                  height="336px" 

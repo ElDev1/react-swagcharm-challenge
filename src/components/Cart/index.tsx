@@ -32,8 +32,8 @@ const Cart = (props: Props) => {
       calcTotalPrice();
   },[totalQuantity, dataItems])
 
-  console.log(totalPrice)
 
+  //function to delete item in itemsArray and update quantity of items
   const deleteDataItem = (id: number) => {
     const newArr = dataItems.filter(elem => elem.id !== id);
     
@@ -45,6 +45,8 @@ const Cart = (props: Props) => {
     setTotalQuantity(filteredQuantityArr);
   }
 
+
+  //function to calculate totalPrice of items in items array
   const calcTotalPrice = () => {
     
     let price = 0;
@@ -56,8 +58,6 @@ const Cart = (props: Props) => {
     setTotalPrice(price); 
   }
   
-  console.log(totalQuantity)
-
   return (
     <Box display="flex" marginTop="32px" justifyContent="space-betweens" gap="20px">
       <Box maxWidth="1100px" width="100%">
@@ -66,8 +66,8 @@ const Cart = (props: Props) => {
             <Typography color="gray" marginLeft="5px">({dataItems.length})</Typography>
         </Box>
         <Box>
-            {dataItems.map((elem, i) => {
-            return <Item 
+            {dataItems.map((elem) => {
+            return (<Item 
                         key={elem.id}
                         id={elem.id}
                         productName={elem.productName} 
@@ -80,7 +80,7 @@ const Cart = (props: Props) => {
                         totalQuantity={totalQuantity}
                         setTotalQuantity={setTotalQuantity}
                     />
-            })}
+            )})}
         </Box>
       </Box>
       <Box>

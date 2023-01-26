@@ -20,7 +20,7 @@ const OrderSummary = (props: Props) => {
         <Divider />
         <Box display="flex" justifyContent="space-between" marginTop="24px" marginBottom="24px">
             <Typography fontWeight="600">Total</Typography>
-            <Typography>{totalPrice.toFixed(2)}</Typography>
+            <Typography fontWeight="700">${totalPrice.toFixed(2)}</Typography>
         </Box>
         <Box color="black">
             <Box marginBottom="15px">

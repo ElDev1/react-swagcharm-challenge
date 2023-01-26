@@ -1,6 +1,4 @@
-import { useState } from "react";
-
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 
 import Data from "./utils/dataCart.json";
 
@@ -9,18 +7,17 @@ import Cart from "./components/Cart";
 import Suggestions from "./components/Suggestions";
 import Footer from "./components/Footer";
 
-function App() {
- 
 
+function App() {
   return (
-    <div>
-      <Header />
-      <Container maxWidth="xl">
-        <Cart data={Data}/>
-        <Suggestions />
-      </Container>
-      <Footer />
-    </div>
+      <Box>
+        <Header />
+        <Container maxWidth="xl">
+          <Cart data={Data}/>
+          <Suggestions />
+        </Container>
+        <Footer />
+      </Box>
   )
 }
 

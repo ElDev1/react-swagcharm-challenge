@@ -29,15 +29,13 @@ const Item = (props: Props) => {
     const [quantity, setQuantity] = useState(0)
 
 
-
+    //function to update quantity in Item component and set totalQuantity of items in Cart component
     const handleQuantity = (event: React.ChangeEvent<HTMLTextAreaElement>) => { 
         const number = Number(event.target.value);
         
-        console.log(totalQuantity, "totalQuantity");
-        console.log(id, "id");
-        
         const newArr = totalQuantity.map(elem => elem);
         const index = newArr.findIndex(elem => elem.id === id);
+        
         newArr[index].quantityItems = number;
         
         setTotalQuantity(newArr)
